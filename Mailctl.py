@@ -34,11 +34,8 @@ class Mailctl:
 
 		messages = []
 		for id in ids:
-			# result, data = self.imap.fetch(id, "(RFC822)")
 			result, data = self.imap.fetch(id, "(RFC822)")
-
 			raw_email = data[0][1].decode('utf-8')
-
 			messages.append(email.message_from_string(raw_email))
 
 		self.boxes[box] = messages
