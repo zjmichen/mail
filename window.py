@@ -1,13 +1,5 @@
 from gi.repository import Gtk
-
-# builder = Gtk.Builder()
-# builder.add_from_file('main.ui')
-
-# window = builder.get_object('main_window')
-# builder.connect_signals({ "on_window_destroy" : Gtk.main_quit })
-# window.show_all()
-
-# Gtk.main()
+import Mailctl
 
 class MailWindow():
 
