@@ -40,7 +40,8 @@ if (__name__ == '__main__'):
 
 	while (True):
 		try:
-			mail.login(input('Email: '), getpass.getpass())
+			# mail.login(input('Email: '), getpass.getpass())
+			mail.login('zjmichen@gmail.com', 'hrbaoxuiwvlmsmdc')
 		except (imaplib.IMAP4.error):
 			print('Login failed')
 			continue
@@ -48,3 +49,20 @@ if (__name__ == '__main__'):
 		break
 
 	print ('Logged in!')
+
+	# print(mail.imap.list()[1][0])
+
+	for box in mail.imap.list()[1]:
+		print(box)
+
+	mail.imap.select('INBOX')
+	result, data = mail.imap.search(None, "ALL")
+	ids = data[0]
+	id_list = ids.split()
+
+	latest_id = id_list[-1]
+
+	result, data = mail.imap.fetch(latest_id, "(RFC822)")
+
+	raw_email = data[0][1]
+	print(raw_email)
